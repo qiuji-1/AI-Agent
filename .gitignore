@@ -1,5 +1,46 @@
+### 个人文件 ###
 计划.txt
 每日完成.txt
+
+### IDE & 编辑器 ###
 .cursor/
 .vscode/
+.idea/
+*.iws
+*.iml
+*.ipr
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
+
+### Maven ###
+HELP.md
+target/
+.mvn/wrapper/maven-wrapper.jar
+!**/src/main/**/target/
+!**/src/test/**/target/
+
+### Gradle ###
+build/
+!**/src/main/**/build/
+!**/src/test/**/build/
+
+### NetBeans ###
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+
+### 项目敏感配置 ###
+application-local.yml
+temp
+mcp-servers.json
 META-INF/
+
+### 敏感文件 ###
+**/TestApiKey.java
