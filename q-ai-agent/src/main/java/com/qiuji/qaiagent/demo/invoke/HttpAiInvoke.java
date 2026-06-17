@@ -1,26 +1,25 @@
 package com.qiuji.qaiagent.demo.invoke;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import cn.hutool.http.HttpRequest;
 import cn.hutool.http.HttpResponse;
 import cn.hutool.json.JSONObject;
-
-import java.util.HashMap;
-import java.util.Map;
 
 /**
  * HTTP 方式调用AI
  */
 
-
 public class HttpAiInvoke {
     public static void main(String[] args) {
-        String apiKey = TestApiKey.API_KEY;
+        String apiKey = TestApiKey.API_KEY ;
         // 替换为你的实际 API 密钥
         String url = "https://dashscope.aliyuncs.com/api/v1/services/aigc/text-generation/generation";
 
         // 设置请求头
         Map<String, String> headers = new HashMap<>();
-        headers.put("Authorization", "Bearer " + TestApiKey.API_KEY);
+        headers.put("Authorization", "Bearer " + apiKey);
         headers.put("Content-Type", "application/json");
 
         // 设置请求体

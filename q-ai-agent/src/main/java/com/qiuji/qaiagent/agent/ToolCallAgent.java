@@ -41,6 +41,11 @@ public class ToolCallAgent extends ReActAgent {
         this.availableTools = availableTools;
     }
 
+    /**
+     * 处理当前状态并决定下一步行动
+     *
+     * @return 是否需要执行行动
+     */
     @Override
     public boolean think() {
         if (!nextStepPromptAdded && getNextStepPrompt() != null && !getNextStepPrompt().isEmpty()) {
@@ -89,6 +94,11 @@ public class ToolCallAgent extends ReActAgent {
         }
     }
 
+    /**
+     * 执行工具调用并处理结果
+     *
+     * @return 执行结果
+     */
     @Override
     public String act() {
         if (toolCallChatResponse == null || !toolCallChatResponse.hasToolCalls()) {

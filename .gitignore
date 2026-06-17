@@ -44,3 +44,10 @@ META-INF/
 
 ### 敏感文件 ###
 **/TestApiKey.java
+
+### Node ###
+node_modules/
+.trae/
+
+### 生成的文档 ###
+docs/

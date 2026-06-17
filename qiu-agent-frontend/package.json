@@ -5,7 +5,8 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "start": "concurrently \"cd ../q-ai-agent && mvnw.cmd spring-boot:run\" \"vite\""
   },
   "dependencies": {
     "vue": "^3.4.21",
@@ -14,6 +15,7 @@
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^4.6.2",
+    "concurrently": "^8.2.2",
     "vite": "^4.5.2"
   }
 }

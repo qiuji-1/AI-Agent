@@ -37,6 +37,7 @@ public class QiuManus extends ToolCallAgent {
         this.setNextStepPrompt(NEXT_STEP_PROMPT);
         this.setMaxSteps(20);
 
+        // 初始化客户端
         ChatClient chatClient = ChatClient.builder(chatModel).build();
         this.setChatClient(chatClient);
 
