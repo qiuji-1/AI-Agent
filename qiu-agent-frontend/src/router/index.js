@@ -2,6 +2,7 @@ import { createRouter, createWebHistory } from 'vue-router'
 import Home from '../views/Home.vue'
 import ChatMaster from '../views/ChatMaster.vue'
 import SuperAgent from '../views/SuperAgent.vue'
+import InterviewReview from '../views/InterviewReview.vue'
 
 const routes = [
   {
@@ -18,6 +19,11 @@ const routes = [
     path: '/super-agent',
     name: 'SuperAgent',
     component: SuperAgent
+  },
+  {
+    path: '/interview-review',
+    name: 'InterviewReview',
+    component: InterviewReview
   }
 ]
 

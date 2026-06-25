@@ -27,6 +27,17 @@
         <h2>AI 超级智能体</h2>
         <p>强大的超级智能体，支持多种工具调用</p>
       </div>
+      
+      <div class="app-card" @click="navigateTo('/interview-review')">
+        <div class="app-icon review-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
+            <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
+          </svg>
+        </div>
+        <h2>面试知识点复习</h2>
+        <p>基于简历技能点的面试题库，分类刷题、标记掌握进度</p>
+      </div>
     </div>
   </div>
 </template>
@@ -110,6 +121,11 @@ const navigateTo = (path) => {
 
 .agent-icon {
   background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+  color: white;
+}
+
+.review-icon {
+  background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
   color: white;
 }
 
