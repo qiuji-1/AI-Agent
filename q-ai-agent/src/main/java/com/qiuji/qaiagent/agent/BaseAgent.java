@@ -93,6 +93,10 @@ public abstract class BaseAgent {
                 
                 // 执行单步
                 String stepResult = step();
+                // 如果只有一步就完成（无需工具调用），直接返回结果，不加 "Step N: " 前缀
+                if (state == AgentState.FINISHED && currentStep == 1) {
+                    return stepResult;
+                }
                 String result = "Step " + stepNumber + ": " + stepResult;
                 results.add(result);
             }
@@ -145,6 +149,11 @@ public abstract class BaseAgent {
                     log.info("Executing step " + stepNumber + "/" + maxSteps);
 
                     String stepResult = step();
+                    // 如果只有一步就完成（无需工具调用），直接返回结果，不加 "Step N: " 前缀
+                    if (state == AgentState.FINISHED && currentStep == 1) {
+                        emitter.send(stepResult);
+                        break;
+                    }
                     String result = "Step " + stepNumber + ": " + stepResult;
                     emitter.send(result);
                 }

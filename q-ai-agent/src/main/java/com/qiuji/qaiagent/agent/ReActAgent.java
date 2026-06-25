@@ -1,6 +1,12 @@
 package com.qiuji.qaiagent.agent;
 
+import java.util.List;
+
+import org.springframework.ai.chat.messages.AssistantMessage;
+import org.springframework.ai.chat.messages.Message;
+
 import com.qiuji.qaiagent.agent.model.AgentState;
+
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
@@ -36,7 +42,20 @@ public abstract class ReActAgent extends BaseAgent {
         try {
             boolean shouldAct = think();
             if (!shouldAct) {
-                return "思考完成 - 无需行动";
+                // 无需行动时，说明任务已完成（LLM 直接回复或出错）
+                setState(AgentState.FINISHED);
+                // 返回最后一条助手消息的文本内容
+                List<Message> msgs = getMessageList();
+                for (int i = msgs.size() - 1; i >= 0; i--) {
+                    Message msg = msgs.get(i);
+                    if (msg instanceof AssistantMessage assistantMsg) {
+                        String text = assistantMsg.getText();
+                        if (text != null && !text.isEmpty()) {
+                            return text;
+                        }
+                    }
+                }
+                return "任务完成";
             }
             return act();
         } catch (Exception e) {
